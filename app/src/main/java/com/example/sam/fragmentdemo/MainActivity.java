@@ -12,17 +12,14 @@ public class MainActivity extends FragmentActivity {
     private final String TAG = "MainActivity";
 
     private RadioGroup mRadioGroup;
-
     private FragmentOne fragmentOne;
     private FragmentTwo fragmentTwo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         Log.i(TAG, "MainActivity------->onCreate");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         //设置默认显示的Fragment
         setTabSelection(R.id.localrecordingtab);
 
@@ -31,11 +28,14 @@ public class MainActivity extends FragmentActivity {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
                 setTabSelection(checkedId);
-
             }
         });
     }
 
+    /**
+     * 切换Fragment
+     * @param id
+     */
     private void setTabSelection(int id){
         // 开启一个Fragment事务
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -46,7 +46,6 @@ public class MainActivity extends FragmentActivity {
                 if (fragmentOne == null) {
                     fragmentOne = new FragmentOne();
                     transaction.add(R.id.frameLayout, fragmentOne);
-                    transaction.replace(R.id.frameLayout, fragmentOne);
                 } else {
                     transaction.show(fragmentOne);
                 }
@@ -70,9 +69,6 @@ public class MainActivity extends FragmentActivity {
 
     /**
      * 将所有的Fragment都置为隐藏状态。
-     *
-     * @param transaction
-     *            用于对Fragment执行操作的事务
      */
     private void hideFragments(FragmentTransaction transaction) {
         if (fragmentOne != null) {

@@ -1,0 +1,52 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+   >
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/tabs_rg"
+        >
+    </FrameLayout>
+    <RadioGroup
+        android:id="@+id/tabs_rg"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:gravity="center_horizontal"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        >
+        <RadioButton
+            android:id="@+id/localrecordingtab"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/tab_event"
+            android:background="@drawable/local_button_bg"
+            android:checked="true"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:button="@null"
+            android:gravity="center"
+            android:text="@string/fragment_one"
+            />
+
+        <RadioButton
+            android:id="@+id/eventlisttab"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/tab_timeline"
+            android:background="@drawable/local_button_bg"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:button="@null"
+            android:gravity="center"
+            android:text="@string/fragment_two"
+            />
+    </RadioGroup>
+
+</RelativeLayout>
